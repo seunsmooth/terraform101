@@ -4,7 +4,7 @@ resource "aws_instance" "machine" {
   count         = var.instance_count
   key_name      = "techleat2022"
 
-  user_data =   file("${element(var.modulescripts,count.index)}")
+  user_data =   file(element(var.modulescripts,count.index))
 
   tags = {
       Name = var.node_name[count.index]
